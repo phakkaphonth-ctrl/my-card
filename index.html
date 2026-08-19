@@ -4,207 +4,442 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✏️ แก้ที่ 1: ชื่อที่จะโชว์บนแท็บเบราว์เซอร์ -->
+  <!-- ชื่อที่จะโชว์บนแท็บเบราว์เซอร์ -->
   <title>ภัคพล ทองจรัส — Datasheet</title>
 
-  <!-- ✏️ แก้ที่ 2: คำอธิบายสั้น ๆ ที่จะโชว์ตอนแชร์ลิงก์ -->
-  <meta name="description" content=" สุดยอดครัช " />
+  <!-- คำอธิบายสั้น ๆ ตอนแชร์ลิงก์ -->
+  <meta
+    name="description"
+    content="Portfolio ของภัคพล ทองจรัส นักศึกษาวิศวกรรมคอมพิวเตอร์ สนใจงาน Full Stack Development"
+  />
 
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
 
-  <!-- ฟอนต์จาก Google Fonts: IBM Plex Sans Thai (เนื้อหา) + IBM Plex Mono (ตัวเลข/ป้ายกำกับ) -->
+  <!-- ฟอนต์จาก Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- แยก CSS ออกเป็น 2 ไฟล์: theme = สิ่งที่แก้บ่อย, style = โครงสร้างที่แก้ทีหลัง -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="./css/theme.css" />
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
-  <!-- ปุ่มสลับโหมดสว่าง/มืด ลอยมุมขวาบน -->
-  <button class="mode-toggle" id="modeToggle" type="button" aria-label="สลับโหมดสีของหน้าเว็บ">
+
+  <!-- =========================================================
+       ปุ่มสลับโหมดสว่าง / มืด
+       ========================================================= -->
+  <button
+    class="mode-toggle"
+    id="modeToggle"
+    type="button"
+    aria-label="สลับโหมดสีของหน้าเว็บ"
+  >
     <span class="mode-toggle__dot" aria-hidden="true"></span>
     <span class="mode-toggle__text" id="modeLabel">NEGATIVE</span>
   </button>
 
+
   <main class="sheet">
 
-    <!-- ═══ ส่วนหัว: เลียนแบบหัวกระดาษ datasheet ของชิ้นส่วนอิเล็กทรอนิกส์ ═══ -->
+    <!-- =======================================================
+         ส่วนหัว
+         ======================================================= -->
     <header class="masthead reveal">
+
       <div class="masthead__meta">
-        <span class="eyebrow">Datasheet</span>
-        <!-- ✏️ แก้ที่ 3: รหัสนักศึกษา ใช้เป็น "รหัสชิ้นส่วน" -->
-        <span class="partno">CE-2569-014-671540005030-5</span>
+
+        <span class="eyebrow">
+          Datasheet
+        </span>
+
+        <!-- รหัสนักศึกษา -->
+        <span class="partno">
+          CE-2569-014-671540005030-5
+        </span>
+
       </div>
 
-      <!-- ✏️ แก้ที่ 4: ชื่อ-นามสกุลของคุณ -->
-      <h1 class="masthead__name">ภัคพล ทองจรัส</h1>
 
-      <!-- ✏️ แก้ที่ 5: บทบาท/สิ่งที่คุณกำลังทำอยู่ -->
-      <p class="masthead__role">นักศึกษาวิศวกรรมคอมพิวเตอร์ KSU· สนใจงาน Full Stack Developer และระบบอัตโนมัติ </p>
+      <!-- ชื่อ -->
+      <h1 class="masthead__name">
+        ภัคพล ทองจรัส
+      </h1>
+
+
+      <!-- บทบาท / ความสนใจ -->
+      <p class="masthead__role">
+        นักศึกษาวิศวกรรมคอมพิวเตอร์ KSU ·
+        สนใจงาน Full Stack Developer และระบบอัตโนมัติ
+      </p>
+
     </header>
 
-    <!-- ═══ ตารางสเปก: คู่ชื่อ-ค่า แบบมีเส้นประเชื่อม ═══ -->
-    <section class="block reveal" aria-labelledby="spec-title">
-      <h2 class="eyebrow" id="spec-title">Specifications</h2>
 
-      <!-- ✏️ แก้ที่ 6: เพิ่ม/ลบ/แก้แถวได้ตามใจ 1 แถว = 1 คู่ dt + dd -->
+    <!-- =======================================================
+         Specifications
+         ======================================================= -->
+    <section
+      class="block reveal"
+      aria-labelledby="spec-title"
+    >
+
+      <h2 class="eyebrow" id="spec-title">
+        Specifications
+      </h2>
+
+
       <dl class="spec">
+
         <div class="spec__row">
           <dt>สาขาวิชา</dt>
           <dd>วิศวกรรมคอมพิวเตอร์</dd>
         </div>
+
+
         <div class="spec__row">
           <dt>ชั้นปี</dt>
           <dd>3</dd>
         </div>
+
+
         <div class="spec__row">
           <dt>สถาบัน</dt>
           <dd>มหาวิทยาลัยกาฬสินธุ์</dd>
         </div>
+
+
         <div class="spec__row">
           <dt>ภาษาที่ใช้บ่อย</dt>
           <dd>JavaScript · Python · SQL</dd>
         </div>
+
+
         <div class="spec__row">
           <dt>สถานะปัจจุบัน</dt>
-          <dd><span class="badge">กำลังหาที่ฝึกงาน</span></dd>
+          <dd>
+            <span class="badge">
+              กำลังหาที่ฝึกงาน
+            </span>
+          </dd>
         </div>
+
+
         <div class="spec__row">
           <dt>ความสนใจ</dt>
-          <dd><span class="badge">Web Development · Network </span></dd>
+          <dd>
+            <span class="badge">
+              Web Development · Network
+            </span>
+          </dd>
         </div>
+
       </dl>
+
     </section>
 
-    <!-- ═══ ผังขา: ส่วนที่เป็นเอกลักษณ์ของหน้านี้ ═══
-         ลิงก์ติดต่อทั้งหมดถูกวาดเป็น "ผังขาของไอซี" แต่ละขาคือช่องทางติดต่อหนึ่งช่อง -->
-    <section class="block reveal" aria-labelledby="pin-title">
-      <h2 class="eyebrow" id="pin-title">Pin configuration</h2>
+
+    <!-- =======================================================
+         Pin Configuration
+         ======================================================= -->
+    <section
+      class="block reveal"
+      aria-labelledby="pin-title"
+    >
+
+      <h2 class="eyebrow" id="pin-title">
+        Pin configuration
+      </h2>
+
 
       <div class="chip">
-        <!-- ขาฝั่งซ้าย -->
+
+        <!-- =========================
+             ขาฝั่งซ้าย
+             ========================= -->
         <ul class="chip__side chip__side--left">
-          <!-- ✏️ แก้ที่ 7: เปลี่ยน href และชื่อขาให้เป็นของคุณ -->
+
           <li>
-            <a class="pin" href="https://github.com/phakkaphonth-ctrl" target="_blank" rel="noopener">
+            <a
+              class="pin"
+              href="https://github.com/phakkaphonth-ctrl"
+              target="_blank"
+              rel="noopener"
+            >
               <span class="pin__no">1</span>
               <span class="pin__label">GitHub</span>
             </a>
           </li>
+
+
           <li>
-            <a class="pin" href="mailto:phakkaphon@example.com" data-copy="phakkaphon@example.com">
+            <a
+              class="pin"
+              href="mailto:phakkaphon@example.com"
+              data-copy="phakkaphon@example.com"
+            >
               <span class="pin__no">2</span>
               <span class="pin__label">Email</span>
             </a>
           </li>
+
+
           <li>
-            <a class="pin" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+            <a
+              class="pin"
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener"
+            >
               <span class="pin__no">3</span>
               <span class="pin__label">LinkedIn</span>
             </a>
           </li>
+
+
           <li>
-            <a class="pin" href="./assets/resume.pdf">
+            <a
+              class="pin"
+              href="./assets/resume.pdf"
+            >
               <span class="pin__no">4</span>
               <span class="pin__label">Resume</span>
             </a>
           </li>
+
         </ul>
 
-        <!-- ตัวชิป: มีรอยบากครึ่งวงกลมด้านบนเหมือนไอซีจริง -->
-        <div class="chip__body" aria-hidden="true">
+
+        <!-- =========================
+             ตัวชิป
+             ========================= -->
+        <div
+          class="chip__body"
+          aria-hidden="true"
+        >
+
           <span class="chip__notch"></span>
-          <!-- ✏️ แก้ที่ 8: ชื่อเล่นภาษาอังกฤษ ตัวพิมพ์ใหญ่ สั้น ๆ -->
-          <span class="chip__name">PON</span>
-          <span class="chip__code">REV 1.0</span>
+
+          <span class="chip__name">
+            PON
+          </span>
+
+          <span class="chip__code">
+            REV 1.0
+          </span>
+
         </div>
 
-        <!-- ขาฝั่งขวา -->
+
+        <!-- =========================
+             ขาฝั่งขวา
+             ========================= -->
         <ul class="chip__side chip__side--right">
+
           <li>
-            <a class="pin" href="https://www.facebook.com/" target="_blank" rel="noopener">
+            <a
+              class="pin"
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener"
+            >
               <span class="pin__no">8</span>
               <span class="pin__label">Facebook</span>
             </a>
           </li>
+
+
           <li>
-            <a class="pin" href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <a
+              class="pin"
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener"
+            >
               <span class="pin__no">7</span>
               <span class="pin__label">Instagram</span>
             </a>
           </li>
+
+
           <li>
-            <a class="pin" href="https://line.me/" target="_blank" rel="noopener">
+            <a
+              class="pin"
+              href="https://line.me/"
+              target="_blank"
+              rel="noopener"
+            >
               <span class="pin__no">6</span>
               <span class="pin__label">LINE</span>
             </a>
           </li>
+
+
           <li>
-            <a class="pin" href="https://medium.com/" target="_blank" rel="noopener">
+            <a
+              class="pin"
+              href="https://medium.com/"
+              target="_blank"
+              rel="noopener"
+            >
               <span class="pin__no">5</span>
               <span class="pin__label">Blog</span>
             </a>
           </li>
+
         </ul>
+
       </div>
 
-      <!-- ข้อความแจ้งผลตอนกดคัดลอกอีเมล จะถูกเติมด้วย JS -->
-      <p class="chip__hint" id="copyHint" role="status">กดขา Email เพื่อคัดลอกที่อยู่อีเมล</p>
-    </section>
 
-    <!-- ═══ คำอธิบายการใช้งาน: เขียนแนะนำตัวแบบสั้น ═══ -->
-    <section class="block reveal" aria-labelledby="about-title">
-      <h2 class="eyebrow" id="about-title">Description</h2>
-
-      <!-- ✏️ แก้ที่ 9: แนะนำตัว 2-3 ประโยค บอกว่าทำอะไรได้และกำลังสนใจอะไร -->
-      <p class="prose">
-        ชอบงานที่ได้เห็นระบบทำงานตั้งแต่ต้นจนจบ ตอนนี้กำลังฝึกพัฒนาทักษะด้าน Full Stack Development ตั้งแต่การพัฒนา Frontend ไปจนถึง Backend และการเชื่อมต่อฐานข้อมูล
-        กำลังฝึกใช้งาน React, Node.js และ REST API รวมถึงเริ่มเรียนรู้ Docker เพื่อให้สามารถพัฒนาและนำโปรเจกต์ไปใช้งานได้อย่างเป็นระบบ
-        เป้าหมายคือพัฒนาทักษะให้สามารถสร้างและนำ Full Stack Web Application ขึ้น Production ได้ด้วยตัวเอง
+      <!-- ข้อความแจ้งผลตอนกดคัดลอก Email -->
+      <p
+        class="chip__hint"
+        id="copyHint"
+        role="status"
+      >
+        กดขา Email เพื่อคัดลอกที่อยู่อีเมล
       </p>
 
-      <!-- ✏️ แก้ที่ 10: ทักษะหรือเครื่องมือที่ใช้เป็น -->
-      <ul class="tags">
-       <ul class="tags">
-         <li>HTML</li>
-         <li>CSS</li>
-         <li>JavaScript</li>
-         <li>React</li>
-         <li>Node.js</li>
-         <li>REST API</li>
-         <li>Python</li>
-         <li>Git</li>
-         <li>Docker</li>
-         </ul>
     </section>
 
-    <!-- ═══ กรอบท้ายกระดาษ: เลียนแบบ title block ของแบบวิศวกรรม ═══ -->
+
+    <!-- =======================================================
+         Description
+         ======================================================= -->
+    <section
+      class="block reveal"
+      aria-labelledby="about-title"
+    >
+
+      <h2 class="eyebrow" id="about-title">
+        Description
+      </h2>
+
+
+      <!-- แนะนำตัว -->
+      <p class="prose">
+
+        ชอบงานที่ได้เห็นระบบทำงานตั้งแต่ต้นจนจบ
+        ตอนนี้กำลังฝึกพัฒนาทักษะด้าน Full Stack Development
+        ตั้งแต่การพัฒนา Frontend ไปจนถึง Backend
+        และการเชื่อมต่อฐานข้อมูล
+
+        กำลังฝึกใช้งาน React, Node.js และ REST API
+        รวมถึงเริ่มเรียนรู้ Docker
+        เพื่อให้สามารถพัฒนาและนำโปรเจกต์ไปใช้งานได้อย่างเป็นระบบ
+
+        เป้าหมายคือพัฒนาทักษะให้สามารถสร้างและนำ
+        Full Stack Web Application ขึ้น Production
+        ได้ด้วยตัวเอง
+
+      </p>
+
+
+      <!-- =====================================================
+           ทักษะและเครื่องมือ
+           ===================================================== -->
+      <ul class="tags">
+
+        <li>HTML</li>
+
+        <li>CSS</li>
+
+        <li>JavaScript</li>
+
+        <li>React</li>
+
+        <li>Node.js</li>
+
+        <li>REST API</li>
+
+        <li>Python</li>
+
+        <li>Git</li>
+
+        <li>Docker</li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- =======================================================
+         Footer / Title Block
+         ======================================================= -->
     <footer class="titleblock reveal">
+
+
       <div class="titleblock__cell">
-        <span class="titleblock__key">Drawn by</span>
-        <!-- ✏️ แก้ที่ 11: ชื่อคุณอีกครั้ง -->
-        <span class="titleblock__val">ภัคพล ทองจรัส</span>
+
+        <span class="titleblock__key">
+          Drawn by
+        </span>
+
+        <span class="titleblock__val">
+          ภัคพล ทองจรัส
+        </span>
+
       </div>
+
+
       <div class="titleblock__cell">
-        <span class="titleblock__key">Updated</span>
-        <span class="titleblock__val" id="year">—</span>
+
+        <span class="titleblock__key">
+          Updated
+        </span>
+
+        <span
+          class="titleblock__val"
+          id="year"
+        >
+          —
+        </span>
+
       </div>
+
+
       <div class="titleblock__cell">
-        <span class="titleblock__key">Sheet</span>
-        <span class="titleblock__val">1 of 1</span>
+
+        <span class="titleblock__key">
+          Sheet
+        </span>
+
+        <span class="titleblock__val">
+          1 of 1
+        </span>
+
       </div>
+
+
       <div class="titleblock__cell">
-        <span class="titleblock__key">Rev</span>
-        <span class="titleblock__val">1.0</span>
+
+        <span class="titleblock__key">
+          Rev
+        </span>
+
+        <span class="titleblock__val">
+          1.0
+        </span>
+
       </div>
+
+
     </footer>
 
   </main>
 
-  <!-- โหลด JS ท้ายสุด เพื่อให้ HTML แสดงผลก่อน -->
+
+  <!-- =========================================================
+       JavaScript
+       โหลดท้ายสุดหลัง HTML
+       ========================================================= -->
   <script src="./js/main.js"></script>
+
 </body>
 </html>

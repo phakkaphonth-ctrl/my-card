@@ -1,34 +1,62 @@
+/* ============================================================
+   theme.css — ปุ่มปรับแต่งทั้งหมดของหน้าเว็บอยู่ในไฟล์นี้
+   ============================================================ */
+
 :root {
+
   /* ---------- สี ---------- */
+
   --paper:       #E3E7E0;
   --surface:     #F3F5F0;
   --ink:         #14180F;
   --ink-soft:    #5C6356;
   --rule:        #B4BCAD;
 
-  /* 🔴 เปลี่ยนสีเน้นจากน้ำเงินเป็นแดง */
+  /* สีเน้น */
   --accent:      #D94F4F;
 
   --chip-body:   #171C13;
   --chip-text:   #E3E7E0;
 
+
   /* ---------- ขนาดเส้นตารางพื้นหลัง ---------- */
 
-  /* 🔲 เดิม 26px → 40px */
   --grid-size:   40px;
   --grid-color:  rgba(20, 24, 15, 0.055);
 
+
   /* ---------- ฟอนต์ ---------- */
 
-  /* 🔤 เปลี่ยนฟอนต์ */
-  --font-body: "Sarabun", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "Courier New", monospace;
+  --font-body:   "Sarabun", system-ui, sans-serif;
+  --font-mono:   "IBM Plex Mono", ui-monospace, "Courier New", monospace;
+
 
   /* ---------- ระยะและมุม ---------- */
-  --gap:      28px;
 
-  /* ⭕ เดิม 3px → 14px */
-  --radius:   14px;
+  --gap:         28px;
+  --radius:      14px;
+  --sheet-w:     760px;
+}
 
-  --sheet-w:  760px;
+
+/* ============================================================
+   โหมดมืด
+   ทำงานเมื่อ JavaScript เพิ่ม class "negative" ให้ <body>
+   ============================================================ */
+
+body.negative {
+
+  --paper:       #101410;
+  --surface:     #191E18;
+  --ink:         #E6EAE2;
+  --ink-soft:    #98A192;
+  --rule:        #394137;
+
+  /* สีเน้นในโหมดมืด */
+  --accent:      #FF6B6B;
+
+  --chip-body:   #E6EAE2;
+  --chip-text:   #101410;
+
+  --grid-color:  rgba(230, 234, 226, 0.05);
 }

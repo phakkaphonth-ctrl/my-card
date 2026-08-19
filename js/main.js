@@ -1,67 +1,156 @@
 /* ============================================================
-   main.js — สคริปต์เล็ก ๆ 3 อย่างของหน้านี้
+   main.js — สคริปต์ของหน้าเว็บ
    1) ใส่ปีปัจจุบันในกรอบท้ายกระดาษ
    2) สลับโหมดสีสว่าง/มืด
    3) คัดลอกอีเมลเมื่อกดขา Email
 
-   หมายเหตุ: ไฟล์นี้เป็นสคริปต์ธรรมดา ไม่ใช่ ES Module
-   จึงเปิดหน้าเว็บด้วยการดับเบิลคลิก index.html ได้เลย
+   หมายเหตุ:
+   ไฟล์นี้เป็น JavaScript ธรรมดา ไม่ใช่ ES Module
    ============================================================ */
 
-// ---------- 1) ใส่ปีปัจจุบัน ----------
-// ดึงปี ค.ศ. จากนาฬิกาเครื่อง แล้วบวก 543 ให้เป็น พ.ศ.
-var yearEl = document.getElementById("year");
-if (yearEl) {
-  var buddhistYear = new Date().getFullYear() + 543;
-  yearEl.textContent = "พ.ศ. " + buddhistYear;
-}
 
-// ---------- 2) สลับโหมดสี ----------
-var toggleBtn = document.getElementById("modeToggle");
-var modeLabel = document.getElementById("modeLabel");
+/* ============================================================
+   รอให้ HTML โหลดเสร็จก่อน
+   ============================================================ */
 
-if (toggleBtn) {
-  toggleBtn.addEventListener("click", function () {
-    // เพิ่ม/ถอด class "negative" ที่ body
-    // ตัวแปรสีทั้งหมดใน theme.css จะถูกเขียนทับอัตโนมัติ
-    var isNegative = document.body.classList.toggle("negative");
+document.addEventListener("DOMContentLoaded", function () {
 
-    // เปลี่ยนข้อความบนปุ่มให้บอกว่ากดแล้วจะได้อะไร
-    modeLabel.textContent = isNegative ? "POSITIVE" : "NEGATIVE";
-  });
-}
 
-// ---------- 3) คัดลอกอีเมล ----------
-var hintEl = document.getElementById("copyHint");
-var copyLinks = document.querySelectorAll("[data-copy]");
-var hintDefault = hintEl ? hintEl.textContent : "";
+  /* ==========================================================
+     1) ใส่ปีปัจจุบัน
+     ========================================================== */
 
-copyLinks.forEach(function (link) {
-  link.addEventListener("click", function (event) {
-    var text = link.getAttribute("data-copy");
+  // ดึง element ที่มี id="year"
+  var yearEl = document.getElementById("year");
 
-    // clipboard API ใช้ได้เฉพาะบน https หรือ localhost
-    // ถ้าใช้ไม่ได้ ปล่อยให้ลิงก์ mailto ทำงานตามปกติ
-    if (!navigator.clipboard) return;
+  if (yearEl) {
+    // ปี ค.ศ. + 543 = ปี พ.ศ.
+    var buddhistYear = new Date().getFullYear() + 543;
 
-    event.preventDefault();
+    yearEl.textContent = "พ.ศ. " + buddhistYear;
+  }
 
-    navigator.clipboard.writeText(text).then(
-      function () {
-        showHint("คัดลอกแล้ว: " + text);
-      },
-      function () {
-        showHint("คัดลอกไม่สำเร็จ กดค้างที่ลิงก์เพื่อคัดลอกเอง");
+
+  /* ==========================================================
+     2) สลับโหมดสีสว่าง / มืด
+     ========================================================== */
+
+  // ปุ่มเปลี่ยนธีม
+  var toggleBtn = document.getElementById("modeToggle");
+
+  // ข้อความบนปุ่ม
+  var modeLabel = document.getElementById("modeLabel");
+
+
+  // ตรวจสอบว่ามีปุ่มจริงหรือไม่
+  if (toggleBtn) {
+
+    toggleBtn.addEventListener("click", function () {
+
+      // เพิ่ม/ถอด class "negative" ที่ body
+      //
+      // ถ้าไม่มี negative
+      // → เพิ่ม negative → ธีมมืด
+      //
+      // ถ้ามี negative
+      // → ลบ negative → กลับธีมสว่าง
+
+      var isNegative = document.body.classList.toggle("negative");
+
+
+      // เปลี่ยนข้อความบนปุ่ม
+      // ป้องกัน Error กรณีไม่มี modeLabel
+
+      if (modeLabel) {
+        modeLabel.textContent = isNegative
+          ? "POSITIVE"
+          : "NEGATIVE";
       }
-    );
-  });
-});
 
-// แสดงข้อความแจ้งผล แล้วคืนค่าเดิมหลัง 2.5 วินาที
-function showHint(message) {
-  if (!hintEl) return;
-  hintEl.textContent = message;
-  window.setTimeout(function () {
-    hintEl.textContent = hintDefault;
-  }, 2500);
-}
+    });
+
+  }
+
+
+  /* ==========================================================
+     3) คัดลอกอีเมล
+     ========================================================== */
+
+  var hintEl = document.getElementById("copyHint");
+
+  var copyLinks = document.querySelectorAll("[data-copy]");
+
+  var hintDefault = hintEl
+    ? hintEl.textContent
+    : "";
+
+
+  // วนทุกลิงก์ที่มี data-copy
+  copyLinks.forEach(function (link) {
+
+    link.addEventListener("click", function (event) {
+
+      // ดึงข้อความจาก data-copy
+      var text = link.getAttribute("data-copy");
+
+
+      // ถ้า browser ไม่รองรับ Clipboard API
+      // ให้ปล่อยลิงก์ทำงานตามปกติ
+      if (!navigator.clipboard) {
+        return;
+      }
+
+
+      // ป้องกันไม่ให้เปิดลิงก์ mailto ทันที
+      event.preventDefault();
+
+
+      // คัดลอกข้อความ
+      navigator.clipboard.writeText(text).then(
+
+        // คัดลอกสำเร็จ
+        function () {
+          showHint("คัดลอกแล้ว: " + text);
+        },
+
+        // คัดลอกไม่สำเร็จ
+        function () {
+          showHint(
+            "คัดลอกไม่สำเร็จ กดค้างที่ลิงก์เพื่อคัดลอกเอง"
+          );
+        }
+
+      );
+
+    });
+
+  });
+
+
+  /* ==========================================================
+     แสดงข้อความแจ้งผลการคัดลอก
+     ========================================================== */
+
+  function showHint(message) {
+
+    // ถ้าไม่มี copyHint ให้หยุด
+    if (!hintEl) {
+      return;
+    }
+
+
+    // เปลี่ยนข้อความ
+    hintEl.textContent = message;
+
+
+    // หลังจาก 2.5 วินาที
+    // ให้กลับไปเป็นข้อความเดิม
+    window.setTimeout(function () {
+
+      hintEl.textContent = hintDefault;
+
+    }, 2500);
+
+  }
+
+});
